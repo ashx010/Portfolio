@@ -27,3 +27,27 @@ class SkillList(models.Model):
 
 	def __str__(self):
 		return self.skill_name + " - " + self.category
+	
+class ExperienceList(models.Model):
+	id = models.AutoField(primary_key=True)
+	company_name = models.CharField(max_length=120)
+	role = models.CharField(max_length=120)
+	location = models.CharField(max_length=120)
+	start_date = models.CharField(max_length=120)
+	end_date = models.CharField(max_length=120)
+	description = models.TextField()
+	
+	def __str__(self):
+		return self.company_name + " - " + self.role
+	
+class EducationList(models.Model):
+	id = models.AutoField(primary_key=True)
+	institution_name = models.CharField(max_length=120)
+	degree = models.CharField(max_length=120)
+	location = models.CharField(max_length=120)
+	start_date = models.CharField(max_length=120)
+	end_date = models.CharField(max_length=120)
+	description = models.CharField(max_length=120, blank=True)
+	
+	def __str__(self):
+		return self.institution_name + " - " + self.degree

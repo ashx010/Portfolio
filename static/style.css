@@ -50,7 +50,7 @@ header .nav-collapse .navpanel.show {
 
 ul.navpanel {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
   padding: 1%;
 }
@@ -306,7 +306,7 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
 }
 
 .skills-info {
-  width: 25%;
+  width: 30%;
   padding: 1% 2%;
   display: flex;
   align-items: center;
@@ -563,27 +563,19 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
     padding: 1%;
   }
 
-  .projects-all-cards {
-    width: 35%;
-  }
-
-  .skill-outerring img {
-    width: 75px;
-    height: 75px;
-  }
-
-  .skill-outerring .center-image {
-    width: 150px;
-    height: 150px;
-  }
   .projects-content,
   .skills-content,
   .expedu-content {
     width: 90%;
   }
+
   .expedu-circle {
     width: 3rem;
     height: 3rem;
+  }
+
+  #projects ul.navpanel {
+    justify-content: space-between;
   }
 
   .projects-info {
@@ -614,6 +606,10 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
   #home .home-content .card-title {
     padding: 0;
     font-size: 2em;
+  }
+
+  ul.navpanel {
+    justify-content: space-between;
   }
 
   .card-text {
@@ -684,9 +680,8 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
     z-index: 10;
   }
 
-
-  .projects-slider .arrow img {
-    rotate: -90deg;
+  .skills-info {
+    width: 40%;
   }
 
   .projects-content,

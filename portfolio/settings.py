@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv(find_dotenv())
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = str(os.environ["SECRET_KEY"])
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,3 +124,14 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_PORT = 587  
+EMAIL_HOST_USER = "scripet.tech@gmail.com"
+EMAIL_HOST_PASSWORD = "zwms sgwc hkzf lcrp"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

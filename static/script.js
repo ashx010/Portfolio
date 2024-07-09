@@ -4,7 +4,7 @@ $(document).ready(function () {
       "box-shadow",
       "rgba(0, 0, 0, 1) 5px 4px 10px, rgba(255, 255, 255, 0.4) -3px -2px 5px"
     );
-		$(".btn-c").css(
+    $(".btn-c").css(
       "box-shadow",
       "rgba(0, 0, 0, 1) 5px 4px 10px, rgba(255, 255, 255, 0.4) -3px -2px 5px"
     );
@@ -124,11 +124,15 @@ function render_project_list(data, project_code_link) {
   data["project_list"].forEach((project) => {
     var project_card = `
 			<div class="projects-info">
-				<div class="project-card" style="background: url(${project.image}); background-size: cover; background-position: center;"></div>
+				<div class="project-card" style="background: url(${
+          project.image
+        }); background-size: cover; background-position: center;"></div>
 				<h2 class="project-title">${project.title}</h2>
 				<span class="project-sub-title">${project.sub_title}</span>
 				<div class="project-links">
-					${project.github_link && project.github_link !== "" ? `
+					${
+            project.github_link && project.github_link !== ""
+              ? `
 					<a href="${project.github_link}" target="_blank">
 						<img
 							src="static/images/github.png"
@@ -136,8 +140,12 @@ function render_project_list(data, project_code_link) {
 							alt="github"
 						/>
 					</a>
-					` : ""}
-					${project.project_link && project.project_link !== "" ? `
+					`
+              : ""
+          }
+					${
+            project.project_link && project.project_link !== ""
+              ? `
 					<a href="${project.project_link}" target="_blank">
 						<img
 							src= "static/images/${project_code_link}.png"
@@ -145,7 +153,9 @@ function render_project_list(data, project_code_link) {
 							alt="${project_code_link}"
 						/>
 					</a>
-					` : ""}
+					`
+              : ""
+          }
 					<a href="javascript:void(0);" target="_blank">
 						<img
 							src="static/images/more.png"
@@ -161,7 +171,6 @@ function render_project_list(data, project_code_link) {
   });
 }
 
-
 const project_showcase_list = (category) => {
   $.ajax({
     url: "/get-project-data",
@@ -170,7 +179,8 @@ const project_showcase_list = (category) => {
     contentType: "application/json",
     dataType: "json",
     success: function (data) {
-			var project_code_link = category === 'Data Science' ? 'kaggle' : 'redirect';
+      var project_code_link =
+        category === "Data Science" ? "kaggle" : "redirect";
       render_project_list(data, project_code_link);
     },
     error: function (data) {
@@ -179,7 +189,7 @@ const project_showcase_list = (category) => {
   });
 };
 
-const skill_showcase_list = () =>{
+const skill_showcase_list = () => {
   $.ajax({
     url: "/get-skill-data",
     type: "GET",
@@ -203,157 +213,105 @@ const skill_showcase_list = () =>{
   });
 };
 
-$(document).ready(function(){
-	// default to web development
-	project_showcase_list("Featured");
-	$('.projects-content .tech-link').on('click', function () {
-		var category = $(this).attr('category');
-    if(category !== "Show All"){
-      $('.projects-content .tech-link').removeClass("active");
+$(document).ready(function () {
+  // default to web development
+  project_showcase_list("Featured");
+  $(".projects-content .tech-link").on("click", function () {
+    var category = $(this).attr("category");
+    if (category !== "Show All") {
+      $(".projects-content .tech-link").removeClass("active");
       $(this).addClass("active");
-      $('#projects-showcase').empty();
+      $("#projects-showcase").empty();
       project_showcase_list(category);
-    }else{
-      window.location.href = "/projects_showcase"
+    } else {
+      window.location.href = "/projects_showcase";
     }
-	});
+  });
 
   //skill showcase
-  $('#skills-showcase').empty();
+  $("#skills-showcase").empty();
   skill_showcase_list();
 });
 
-$(document).ready(function () {
-  var exp = {
-    exp2: {
-      company: "Mapping DigiWorld",
-      role: "Backend Developer Intern",
-      duration: "Sept, 2023 : Feb, 2024",
-      location: "Noida, UP, India",
-      desc: [
-        "Maintain and develop mapping applications using HTML, CSS, JavaScript & jQuery to map GeoJson data.",
-        " Developed robust admin and CMS panels using Python Django & MYSQL.",
-        " Dynamic websites using PHP as a leverage to make effective and traditional backend functionality.",
-        " Developing strategies to improve performance.",
-      ],
-    },
-    exp1: {
-      company: "IBM",
-      role: "Training",
-      duration: "Aug 2022",
-      location: "ADGITM, Delhi, India",
-      desc: [
-        "I have acquired skills and knowledge on Machine Learning, Python, and Data Science.",
-        " Create Projects using different types of data and different machine learning models.",
-        " Preprocess, Visualize and Analyze data to gain better understanding of data and improve model.",
-      ],
-    },
-  };
 
-  var edu = {
-    edu3: {
-      college: "ADGITM",
-      degree: "B.Tech, CSE",
-      duration: "2020 : 2024",
-      location: "Delhi, India",
-      desc: "GPA : 8.5",
-    },
-    edu2: {
-      college: "St. Lawrence Convent",
-      degree: "12 <sup>th</sup> Grade",
-      duration: "2019-2020",
-      location: "Delhi, India",
-      desc: "",
-    },
-    edu1: {
-      college: "St. Lawrence Convent",
-      degree: "10 <sup>th</sup> Grade",
-      duration: "2017-2018",
-      location: "Delhi, India",
-      desc: "",
-    },
-  };
+function render_eduexp_list(category, data) {
+  $("#expedu .expedu-showcase").empty();
+  var k = 0; // to manipulate sides of boxes
+  var show_line = `<div class="expedu-line"></div>`;
+  $("#expedu .expedu-showcase").append(show_line);
+  let i =0;
+  console.log(data)
+  data['expedu_list'].forEach((element) => {
+    var add_exp_edu_plate = `
+      <div expedu_number="${i}" class="expedu-row">
+        <div class="expedu-box">
+          <div class="box-content ${category}">
+            <div class="head">${
+              element.company_name || element.institution_name
+            }</div>
+            <div class="sub-head" >${element.role || element.degree}</div>
+            <div class="sub-head" >
+              ${element.start_date} - ${element.end_date}
+            </div>
+            <div class="sub-head" >${element.location}</div>
+            <div class="body-content">${element.description}</div>
+          </div>
+        </div>
+        <div class="expedu-circle">
+          <div class="circle-img" style="${
+            category === "exp"
+              ? "background: url('static/images/experience.png'); background-size: cover; background-position: center;"
+              : "background: url('static/images/education.png'); background-size: cover; background-position: center;"
+          }">
+          </div>
+        </div>
+      </div>
+    `;
 
-  var expedu = $("#expedu .expedu-showcase")[0];
+    $("#expedu .expedu-showcase").append(add_exp_edu_plate);
 
-  function switchexpedu(category) {
-    expedu.innerHTML = "";
-    var k = 0;
-    var expedu_category = category === "exp" ? exp : edu;
-    var show_line = `<div class="expedu-line"></div>`;
-    $(show_line).appendTo(expedu);
-    for (let i in expedu_category) {
-      var add_exp_edu_plate = `
-                <div expedu_number="${i}" class="expedu-row">
-                    <div class="expedu-box">
-                        <div class="box-content ${category}">
-                            <div class="head">${
-                              expedu_category[i]["company"] ||
-                              expedu_category[i]["college"]
-                            }</div>
-                            <div class="sub-head" >${
-                              expedu_category[i]["role"] ||
-                              expedu_category[i]["degree"]
-                            }</div>
-                            <div class="sub-head" >${
-                              expedu_category[i]["duration"]
-                            }</div>
-                            <div class="sub-head" >${
-                              expedu_category[i]["location"]
-                            }</div>
-                        </div>
-                    </div>
-                    <div class="expedu-circle">
-                        <div class="circle-img" style="${
-                          category === "exp"
-                            ? "background: url('static/images/experience.png'); background-size: cover; background-position: center;"
-                            : "background: url('static/images/education.png'); background-size: cover; background-position: center;"
-                        }"></div>
-                    </div>
-                </div>`;
-      $(add_exp_edu_plate).appendTo(expedu);
-      if (category === "exp") {
-        for (let el1 = 0; el1 < expedu_category[i]["desc"].length; el1++) {
-          $(
-            ".expedu-row[expedu_number=" + i + "] .box-content." + category
-          ).append(
-            `<div class="body-content">${el1 + 1}: ${
-              expedu_category[i]["desc"][el1]
-            }</div>`
-          );
-        }
-      } else if (category === "edu") {
-        $(
-          ".expedu-row[expedu_number=" + i + "] .box-content." + category
-        ).append(
-          `<div class="body-content">${expedu_category[i]["desc"]}</div>`
-        );
+    let h_line = $("#expedu .expedu-showcase").height();
+    $("#expedu .expedu-showcase .expedu-line").css("height", `${h_line}px`);
+    if (category === "exp") {
+      if (k % 2 !== 0) {
+        $(".expedu-row").eq(k).addClass("right");
       }
-      let h_showcase = $("#expedu .expedu-showcase").height();
-      let h_line = h_showcase;
-      $("#expedu .expedu-showcase .expedu-line").css("height", `${h_line}px`);
-      if (category === "exp") {
-        if (k % 2 !== 0) {
-          $(".expedu-row").eq(k).addClass("right");
-        }
-      } else if (category === "edu") {
-        if (k % 2 === 0) {
-          $(".expedu-row").eq(k).addClass("right");
-        }
+    } else if (category === "edu") {
+      if (k % 2 === 0) {
+        $(".expedu-row").eq(k).addClass("right");
       }
-      k++;
     }
-    $("#expedu .expedu-box").addClass("has-scrollbar");
-  }
+    k++;
+    i++;
+  });
+  $("#expedu .expedu-box").addClass("has-scrollbar");
+}
 
-  //default show experience
-  switchexpedu("exp");
+$(document).ready(function () {
+
+  const eduexp_list = (category) => {
+    $.ajax({
+      url: "/get-expedu-data",
+      type: "GET",
+      data: { category: category },
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        render_eduexp_list(category, data);
+      },
+      error: function (data) {
+        console.log("Error in fetching data");
+      },
+    });
+  };
+
+  eduexp_list("exp");
 
   $("#expedu .expedu-content .expedu-link").on("click", function () {
     var category = $(this).attr("category");
     $("#expedu .expedu-content .expedu-link").removeClass("active");
     $(this).addClass("active");
-    switchexpedu(category);
+    eduexp_list(category);
   });
 });
 
@@ -371,8 +329,8 @@ $(document).ready(function () {
     };
     $.ajax({
       url: "/send-data",
-      type: "POST",
-      data: JSON.stringify(formdata), // Send data as JSON string
+      type: "GET",
+      data: {'name': name, 'email':email, 'message':message}, // Send data as JSON string
       contentType: "application/json",
       dataType: "json",
       beforeSend: function () {
@@ -380,7 +338,7 @@ $(document).ready(function () {
         $(".notification").show();
       },
       success: function (data) {
-        if (data === "success") {
+        if (data.status === true) {
           $(".notification").text("Message sent successfully");
           $(".notification").show();
           setTimeout(() => {
