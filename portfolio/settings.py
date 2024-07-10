@@ -132,6 +132,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_PORT = 587  
 EMAIL_HOST_USER = "scripet.tech@gmail.com"
-EMAIL_HOST_PASSWORD = "zwms sgwc hkzf lcrp"
+EMAIL_HOST_PASSWORD = str(os.environ["HOST_KEY_1"]) + " " + str(os.environ["HOST_KEY_2"]) + " " + str(os.environ["HOST_KEY_3"]) + " " + str(os.environ["HOST_KEY_4"])
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
