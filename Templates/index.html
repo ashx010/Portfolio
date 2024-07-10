@@ -12,7 +12,20 @@
 		gtag('config', 'G-LFL9YQ06M3');
 	</script> -->
     <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="{% static 'favicon_io/android-chrome-512x512.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="{% static 'favicon_io/android-chrome-192x192.png' %}"
+    />
+    <link
       rel="apple-touch-icon"
+      type="image/png"
       sizes="180x180"
       href="{% static 'favicon_io/apple-touch-icon.png' %}"
     />
@@ -28,6 +41,7 @@
       sizes="16x16"
       href="{% static 'favicon_io/favicon-16x16.png' %}"
     />
+    
     <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}" />
     <title>Scripet</title>
     <meta charset="utf-8" />
@@ -58,7 +72,7 @@
             <li class="projects-link-items"><a href="#about">About</a></li>
             <li class="projects-link-items"><a href="#contact">Contacts</a></li>
             <li class="projects-link-items"><a href="#projects">Works</a></li>
-            <li class="projects-link-items"><a href="resume.pdf" target="_blank">Resume</a></li>
+            <li class="projects-link-items"><a href="{% static 'resume.pdf' %}" target="_blank">Resume</a></li>
           </ul>
         </div>
       </header>
@@ -84,7 +98,7 @@
         </div>
         <div class="home-content-image">
           <img
-            src="{% static 'images/Scripet Logo.png' %}"
+            src="{% static 'images/ScripetLogo.png' %}"
             width="100"
             alt="profile image"
           />

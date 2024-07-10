@@ -156,13 +156,17 @@ function render_project_list(data, project_code_link) {
 					`
               : ""
           }
-					<a href="javascript:void(0);" target="_blank">
+					${
+            true == false
+              ? `<a href="javascript:void(0);" target="_blank">
 						<img
 							src="static/images/more.png"
 							width="40"
 							alt="more"
 						/>
-					</a>
+					</a>`
+              : " "
+          }
 				</div>
 			</div>
 		`;
@@ -233,15 +237,14 @@ $(document).ready(function () {
   skill_showcase_list();
 });
 
-
 function render_eduexp_list(category, data) {
   $("#expedu .expedu-showcase").empty();
   var k = 0; // to manipulate sides of boxes
   var show_line = `<div class="expedu-line"></div>`;
   $("#expedu .expedu-showcase").append(show_line);
-  let i =0;
-  console.log(data)
-  data['expedu_list'].forEach((element) => {
+  let i = 0;
+  console.log(data);
+  data["expedu_list"].forEach((element) => {
     var add_exp_edu_plate = `
       <div expedu_number="${i}" class="expedu-row">
         <div class="expedu-box">
@@ -288,7 +291,6 @@ function render_eduexp_list(category, data) {
 }
 
 $(document).ready(function () {
-
   const eduexp_list = (category) => {
     $.ajax({
       url: "/get-expedu-data",
@@ -330,7 +332,7 @@ $(document).ready(function () {
     $.ajax({
       url: "/send-data",
       type: "GET",
-      data: {'name': name, 'email':email, 'message':message}, // Send data as JSON string
+      data: { name: name, email: email, message: message }, // Send data as JSON string
       contentType: "application/json",
       dataType: "json",
       beforeSend: function () {
