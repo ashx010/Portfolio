@@ -241,8 +241,8 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
 }
 
 .projects-info {
-  width: 30%;
-  height: 24rem;
+  width: 20%;
+  height: 20rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -259,7 +259,8 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
   border-radius: 5%;
   background-size: cover;
   width: 100%;
-  aspect-ratio: 1.5;
+  min-height: 10em;
+  aspect-ratio: auto;
   background-position: center;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8) inset,
     -5px -5px 15px rgba(255, 255, 255, 0.2) inset;
@@ -267,20 +268,21 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
 
 .projects-info .project-title {
   padding: 2%;
-  font-weight: 800;
-  font-size: 1.5em;
+  font-weight: 600;
+  font-size: 1em;
   margin: 0;
   font-family: "font2";
   font-style: normal;
   font-variant: normal;
   text-transform: capitalize;
-  margin-top: 1em;
+  width: 100%;
+  text-align: start;
 }
 
 .projects-info .project-sub-title {
   padding: 1%;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.8em;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-style: normal;
@@ -291,8 +293,7 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 90%;
-  margin-top: 1em;
+  width: 100%;
 }
 
 .projects-buttons .tech-link.active,
@@ -666,7 +667,7 @@ body .has-scrollbar::-webkit-scrollbar-thumb {
   }
 
   .projects-info .project-title {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0;
     width: 50%;
     z-index: 10;

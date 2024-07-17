@@ -136,7 +136,7 @@ function render_project_list(data, project_code_link) {
 					<a href="${project.github_link}" target="_blank">
 						<img
 							src="static/images/github.png"
-							width="45"
+							width="40"
 							alt="github"
 						/>
 					</a>
@@ -149,7 +149,7 @@ function render_project_list(data, project_code_link) {
 					<a href="${project.project_link}" target="_blank">
 						<img
 							src= "static/images/${project_code_link}.png"
-							width="45"
+							width="40"
 							alt="${project_code_link}"
 						/>
 					</a>
