@@ -1,4 +1,5 @@
 #ignore env
 .env
 # ignore virtual env
-/env
+/.venv
+/.idea
