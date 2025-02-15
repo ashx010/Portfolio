@@ -7,3 +7,6 @@ python-dotenv==1.0.1
 sqlparse==0.5.3
 typing_extensions==4.12.2
 tzdata==2025.1
+gunicorn>=23,<24
+dj-database-url>=2,<3
+whitenoise[brotli]>=6,<7
