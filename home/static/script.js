@@ -241,7 +241,6 @@ function render_eduexp_list(category, data) {
   var show_line = `<div class="expedu-line"></div>`;
   $("#expedu .expedu-showcase").append(show_line);
   let i = 0;
-  console.log(data);
   data["expedu_list"].forEach((element) => {
     var add_exp_edu_plate = `
       <div expedu_number="${i}" class="expedu-row">
