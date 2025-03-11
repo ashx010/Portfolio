@@ -124,9 +124,7 @@ function render_project_list(data, project_code_link) {
   data["project_list"].forEach((project) => {
     var project_card = `
 			<div class="projects-info">
-				<div class="project-card" style="background: url(${
-          project.image
-        }); background-size: cover; background-position: center;"></div>
+				<div class="project-card" style="background: url(${staticUrl}${project.image}); background-size: cover; background-position: center;"></div>
 				<h2 class="project-title">${project.title}</h2>
 				<span class="project-sub-title">${project.sub_title}</span>
 				<div class="project-links">
@@ -135,7 +133,7 @@ function render_project_list(data, project_code_link) {
               ? `
 					<a href="${project.github_link}" target="_blank">
 						<img
-							src="static/images/github.png"
+							src="${staticUrl}images/github.png"
 							width="40"
 							alt="github"
 						/>
@@ -148,7 +146,7 @@ function render_project_list(data, project_code_link) {
               ? `
 					<a href="${project.project_link}" target="_blank">
 						<img
-							src= "static/images/${project_code_link}.png"
+							src= "${staticUrl}images/${project_code_link}.png"
 							width="40"
 							alt="${project_code_link}"
 						/>
@@ -160,7 +158,7 @@ function render_project_list(data, project_code_link) {
             true == false
               ? `<a href="javascript:void(0);" target="_blank">
 						<img
-							src="static/images/more.png"
+							src="${staticUrl}images/more.png"
 							width="40"
 							alt="more"
 						/>
@@ -204,7 +202,7 @@ const skill_showcase_list = () => {
       skill_list.forEach((skill) => {
         var skill_card = `
           <div class="skills-info">
-            <div class="skill-card" style="background: url(${skill.image}); background-size: cover; background-position: center;"></div>
+            <div class="skill-card" style="background: url(${staticUrl}${skill.image}); background-size: cover; background-position: center;"></div>
             <p class="skill-title">${skill.skill_name}</p>
           </div>
         `;
@@ -263,8 +261,8 @@ function render_eduexp_list(category, data) {
         <div class="expedu-circle">
           <div class="circle-img" style="${
             category === "exp"
-              ? "background: url('static/images/experience.png'); background-size: cover; background-position: center;"
-              : "background: url('static/images/education.png'); background-size: cover; background-position: center;"
+              ? `background: url('${staticUrl}images/experience.png'); background-size: cover; background-position: center;`
+              : `background: url('${staticUrl}images/education.png'); background-size: cover; background-position: center;`
           }">
           </div>
         </div>
