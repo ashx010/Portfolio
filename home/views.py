@@ -22,7 +22,7 @@ def getProjectData(request):
             'title': project.title,
             'sub_title': project.sub_title,
             'description': project.description,
-            'image': project.image.url,
+            'image': str(project.image),
             'category': project.category,
             'github_link': project.github_link,
             'project_link': project.project_link,
@@ -35,7 +35,7 @@ def getSkillData(request):
     for skill in skills:
         skill_list.append({
             'skill_name': skill.skill_name,
-            'image': skill.image.url,
+            'image': str(skill.image),
         })
     return JsonResponse({'skill_list': skill_list})
     

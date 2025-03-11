@@ -17,7 +17,8 @@ SECRET_KEY = str(os.environ["SECRET_KEY"])
 DEBUG = os.environ.get("ENVIRONMENT") == "development"
 
 ALLOWED_HOSTS = ["*"]
-SECURE_SSL_REDIRECT = True
+
+SECURE_SSL_REDIRECT = os.environ.get("ENVIRONMENT") != "development"
 
 # Application definition
 

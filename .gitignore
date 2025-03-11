@@ -3,3 +3,4 @@
 # ignore virtual env
 /.venv
 /.idea
+/venv
